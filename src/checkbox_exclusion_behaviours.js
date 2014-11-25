@@ -13,15 +13,10 @@ var createCbExclusionBehaviours = function( matrix, models ) {
             if ( checked ) {
                 for( var other = 0; other < models.length; other ++ ) {
                     if ( matrix[ i ][ other ] === 1) {
-                        if ( models[ other ] instanceof Array ) {
-                            for ( var j = 0; j < models[ other ].length; j ++ ) {
-                                if ( models[ other ][ j ].checked ) {
-                                    $( models[ other ][ j ] ).click();
-                                }
-                            }
-                        } else {
-                            if ( models[ other ][ j ].checked ) {
-                                $( models[ other ][ j ] ).click();
+                        var arr = jQuery.makeArray( models[ other ] );
+                        for ( var j = 0; j < arr.length; j ++ ) {
+                            if ( arr[ j ].checked ) {
+                                $( arr[ j ] ).click();
                             }
                         }
                     }
