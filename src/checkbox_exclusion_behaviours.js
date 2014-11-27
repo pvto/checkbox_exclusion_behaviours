@@ -12,7 +12,7 @@ var createCbExclusionBehaviours = function( matrix, models ) {
             var checked = _.reduce( models[ i ], function( res, d ) { return res || d.checked; }, false );
             if ( checked ) {
                 for( var other = 0; other < models.length; other ++ ) {
-                    if ( matrix[ i ][ other ] === 1) {
+                    if ( matrix[ i ][ other ] ) {
                         var arr = jQuery.makeArray( models[ other ] );
                         for ( var j = 0; j < arr.length; j ++ ) {
                             if ( arr[ j ].checked ) {
